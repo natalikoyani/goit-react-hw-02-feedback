@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
-import './index.css';
-import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from 'components/GlobalStyle';
 
+const theme = {
+  lightColor: 'white',
+  darkColor: 'black',
+  grayColor: '#d2cfcf',
+  borderRadius: '4px',
+  spacing: value => `${value * 4}px`,
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/goit-react-hw-02-feedback">
+    <ThemeProvider theme={theme}>
       <App />
-    </BrowserRouter>
+      <GlobalStyle />
+    </ThemeProvider>
   </React.StrictMode>
 );
