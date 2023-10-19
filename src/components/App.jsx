@@ -31,10 +31,11 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const totalFeedback = this.countTotalFeedback();
+    const options = Object.keys(this.state);
 
     return(
     <>
-      <Section title="Please leave feedback"><FeedbackOptions onLeaveFeedback={this.updateFeedback} /></Section>
+        <Section title="Please leave feedback"><FeedbackOptions options={options} onLeaveFeedback={this.updateFeedback} /></Section>
       <Section title="Statistics">
         {totalFeedback === 0
         ? (<Notification message="There is no feedback"/>)
